@@ -1,20 +1,16 @@
+//Jenkins file only to tutorial example
 pipeline {
   agent any
     
-  tools {nodejs "mynode"}
-
+  tools {nodejs "node"}
     
   stages {
-    stage('checkout stage') {
-     steps {
-            git branch: 'main',
-                credentialsId: '2d815a95-a1c5-4081-93bc-9630e8e7dbe9',
-                url: 'https://github.com/sthitaprajnadas/node_jenkins.git'
-            sh "ls -lat"
-        }
-        }
         
-
+    stage('Cloning Git') {
+      steps {
+        git 'https://github.com/gustavoapolinario/node-todo-frontend'
+      }
+    }
         
     stage('Install dependencies') {
       steps {
