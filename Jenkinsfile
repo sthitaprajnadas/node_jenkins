@@ -9,7 +9,7 @@ pipeline {
     stage('Cloning Git') {
       steps {
 		git branch: 'main',
-            credentialsId: '2d815a95-a1c5-4081-93bc-9630e8e7dbe9',
+            credentialsId: 'gitcred',
         	url 'https://github.com/sthitaprajnadas/node_jenkins.git'
       }
     }
