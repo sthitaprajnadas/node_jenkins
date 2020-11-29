@@ -5,12 +5,13 @@ pipeline {
     dockerImage = ''
   }
   agent any
+
+  tools {nodejs "mynode"}
+
   stages {
     stage('Cloning Git') {
       steps {
-		git branch: 'main',
-            credentialsId: 'gitcred',
-        	url 'https://github.com/sthitaprajnadas/node_jenkins.git'
+		git 'https://github.com/sthitaprajnadas/node_jenkins'
       }
     }
     stage('Building image') {
